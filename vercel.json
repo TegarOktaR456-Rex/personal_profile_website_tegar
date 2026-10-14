@@ -3,7 +3,10 @@
     "builds": [
         {
             "src": "api/index.php",
-            "use": "vercel-php@0.6.2"
+            "use": "vercel-php@0.6.2",
+            "config": {
+                "maxDuration": 30
+            }
         },
         {
             "src": "public/**",
@@ -14,6 +17,18 @@
         {
             "src": "/build/(.*)",
             "dest": "/public/build/$1"
+        },
+        {
+            "src": "/favicon\\.ico",
+            "dest": "/public/favicon.ico"
+        },
+        {
+            "src": "/robots\\.txt",
+            "dest": "/public/robots.txt"
+        },
+        {
+            "src": "/(css|js|images|fonts)/(.*)",
+            "dest": "/public/$1/$2"
         },
         {
             "src": "/(.*)",
