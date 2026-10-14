@@ -18,11 +18,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
-        // Memaksa Laravel selalu menggunakan HTTPS di Vercel
-        if (env('APP_ENV') !== 'local') {
-            URL::forceScheme('https');
-        }
-    }
+   public function boot(): void
+{
+    // Paksa HTTPS tanpa syarat logika
+    URL::forceScheme('https');
+}
 }
